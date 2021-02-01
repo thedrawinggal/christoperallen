@@ -1,0 +1,84 @@
+.project {
+  .two-column-width {
+      @include flexbox(row, space-between, stretch, nowrap);
+
+      @media(max-width: $LESS_THAN_LG) {
+          @include flexbox(column, flex-start, center, nowrap);
+      }
+
+      &-left{
+        width: calc(30% - 20px);
+      }
+      &-right{
+        width: calc(70% - 20px);
+      }
+
+      &-left,
+      &-right {
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+          }
+
+          @media(max-width: $LESS_THAN_LG) {
+              width: 80% !important;
+          }
+          @media(max-width: $LESS_THAN_MD) {
+              width: 100% !important;
+          }
+
+      }
+      &-left{
+        @media(max-width: $LESS_THAN_LG) {
+            @include responsive-spacing(bottom, margin, 78px, 40px, 30px, 20px);
+          }
+      }
+
+  }
+  .project-link{
+    text-align: right;
+    @media(max-width: $LESS_THAN_LG) {
+        text-align: left;
+        width: 80%;
+        margin: auto;
+        padding-bottom: 20px;
+    }
+    @media(max-width: $LESS_THAN_MD) {
+        text-align: left;
+        width: 100%;
+        margin: 0;
+    }
+  }
+  .project-title{
+
+  }
+  .project-sub-title{
+
+  }
+  .project-image{
+    margin: 30px 0;
+    @media(max-width: $LESS_THAN_LG) {
+        width: 80% !important;
+        margin: 30px auto;
+    }
+    @media(max-width: $LESS_THAN_MD) {
+        width: 100% !important;
+        margin: 30px auto;
+    }
+  }
+  .project-content{
+    border-left: 1px solid $GRAY;
+    padding: 0 40px;
+
+    h2, h3, h5{
+      padding: 20px 0;
+    }
+    @media(max-width: $LESS_THAN_LG) {
+        border-left: none;
+        padding: 0;
+    }
+  }
+}

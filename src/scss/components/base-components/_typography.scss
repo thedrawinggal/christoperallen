@@ -1,0 +1,78 @@
+@import url("https://use.typekit.net/aay0gmf.css");
+
+html,
+body {
+	@include responsive-type(2vw, 16px, 18px, 16px);
+	color: $BLACK;
+	font-family: $SANS_SERIF_FONT;
+	font-weight: $LIGHT_WEIGHT;
+	line-height: 220%;
+}
+
+h1 {
+	// 40px target
+	font-family: $SANS_SERIF_FONT;
+	font-weight: $LIGHT_WEIGHT;
+	@include responsive-type(4vw, 30px, 45px, 40px);
+}
+
+h2 {
+	// 35px target
+	font-family: $SERIF_FONT;
+	font-weight: $LIGHT_WEIGHT;
+	line-height: 110%;
+	@include responsive-type(3.5vw, 28px, 28px, 28px);
+	margin-bottom: 20px;
+}
+
+h3 {
+	// 30px target
+	font-family: $SANS_SERIF_FONT;
+	font-weight: $LIGHT_WEIGHT;
+	margin-bottom: 20px;
+	@include responsive-type(3.2vw, 22px, 22px, 22px);
+}
+
+h4 {
+	// 25px target
+	font-family: $SERIF_FONT;
+	font-weight: $SEMI_BOLD_WEIGHT;
+	line-height: 200%;
+	text-transform: $UPPERCASE_TEXT;
+	letter-spacing: 1px;
+	@include responsive-type(3vw, 16px, 16px, 16px);
+	span{
+		background-color: $YELLOW;
+		color: $BLACK;
+	}
+}
+
+h5 {
+	// 11px target
+	@include responsive-type(1vw, 12px, 12px, 12px);
+	font-family: $SANS_SERIF_FONT;
+	font-weight: $BOLD_WEIGHT;
+	text-transform: $UPPERCASE_TEXT;
+	letter-spacing: 3px;
+	display: inline-block;
+	line-height: 25px;
+	position: relative;
+}
+b{
+	font-weight: $SEMI_BOLD_WEIGHT;
+}
+i{
+	font-style: italic;
+}
+
+p {
+	// 20px target
+	font-family: $SANS_SERIF_FONT;
+	font-weight: $LIGHT_WEIGHT;
+	line-height: 220%;
+	@include responsive-type(2vw, 16px, 18px, 16px);
+
+	+p {
+		padding-top: 20px;
+	}
+}

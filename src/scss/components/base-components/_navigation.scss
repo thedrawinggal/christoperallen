@@ -1,0 +1,223 @@
+.site-header {
+	margin: 0;
+	height: 160px;
+	background-color: $LIGHT_GRAY;
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+	@include responsive-sizing(margin-bottom, 60px, 50px, 40px, 30px);
+	@media(max-width: $LESS_THAN_MD){
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+	  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+	}
+
+	&-banner{
+		position: absolute;
+		width: 100%;
+		top:0;
+		color: $WHITE;
+	}
+
+	&-bar {
+		height: 20px;
+		width: 100%;
+		background-color: $YELLOW;
+
+		&.home{
+			display: none;
+		}
+	}
+	&-content{
+		@include flexbox(row, space-between, flex-start);
+		@include responsive-sizing-extended(margin, 30px 40px, 30px 40px, 30px 40px, 30px 40px, 30px 30px, 30px 20px);
+
+		&.home{
+			@include responsive-sizing(margin, 60px, 40px, 30px, 30px);
+		}
+
+		&-info{
+
+			@media (max-width: 440px) {
+				width: 70%;
+			}
+			.page-title{
+				font-size: 20px;
+				font-weight: 300;
+				text-transform: lowercase;
+				margin-bottom: 10px;
+				&.home{
+					display: none;
+				}
+			}
+			.logo {
+				img{
+					width: 100%;
+					max-width: 217px;
+					cursor: pointer;
+				}
+
+				&.home{
+					display: none;
+				}
+				cursor: pointer;
+			}
+
+		}
+	}
+
+		&-menu-icon{
+			height: 44px;
+			width: 44px;
+			text-align: right;
+			cursor: pointer;
+
+			img{
+				width: 100%;
+				cursor: pointer;
+			}
+
+			@media (max-width: 440px) {
+				height: 34px;
+				width: 34px;
+			}
+		}
+
+
+
+
+
+	&-menu {
+		height: 100%;
+		width: 100%;
+		background-color: $YELLOW;
+		position: absolute;
+		z-index: 1000;
+		top: 0;
+		@include flexbox(row, space-between, center);
+		overflow: hidden;
+		display: none;
+
+		li,
+		ul {
+			list-style: none;
+			font-size: 32px;
+			font-weight: 200;
+			line-height: 220%;
+
+			.sub-menu{
+				margin-bottom: 10px;
+				li {
+					font-size: 16px;
+					text-transform: uppercase;
+					font-weight: bold;
+				}
+			}
+		}
+		.menu-item{
+			transition: .3s all;
+			transform: translateX(0px);
+		}
+		.menu-item:hover{
+			transition: .3s all;
+			transform: translateX(7px);
+		}
+
+		&-nav-items {
+			height: 100%;
+			background-image: url('../../dist/images/nav-bg.png');
+			background-position: bottom;
+			background-size: contain;
+			background-repeat: no-repeat;
+			@include flexbox(row, center, center);
+			@include responsive-sizing-extended(width, 26%, 30%, 40%, 50%, 70%, 100%);
+
+			&-content{
+				height: 100%;
+				width: 100%;
+				@include responsive-sizing-extended(padding, 60px, 60px, 60px, 60px, 60px, 60px 10%)
+				overflow: scroll;
+
+				@media (min-width: $XL) {
+					width: auto;
+				}
+
+				.logo {
+					margin-bottom: 40px;
+					img{
+						width: 100%;
+						max-width: 217px;
+						cursor: pointer;
+					}
+				}
+
+				.menu{
+					//margin-top: 40px;
+					margin-bottom: 140px;
+				}
+				.close{
+					display: none;
+					background-color: #000000;
+			    color: #ffffff;
+			    padding: 10px;
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			    cursor: pointer;
+			    height: 50px;
+
+					img{
+						height: 30px;
+						width: 30px;
+						padding: 10px;
+						cursor: pointer;
+
+					}
+					@media (max-width: 440px) {
+						display: block;
+					}
+				}
+			}
+			.bg-angle{
+				position: absolute;
+				//z-index: 1001;
+				bottom: 0;
+				height: 300px;
+				width: inherit;
+				background-color:rgba(255,255,255,0.4);
+				-webkit-clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+				clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+			}
+
+		}
+		&-image {
+			height: 100%;
+			@include responsive-sizing-extended(width, 74%, 70%, 60%, 50%, 30%, 100% );
+			background-color: $BLACK;
+			background-image: url('../../dist/images/nav-image.jpg');
+			background-size: cover;
+			background-position: center;
+			text-align: right;
+			position: relative;
+			cursor: pointer;
+
+			&-content{
+				padding: 60px;
+
+				.close{
+					position: absolute;
+					top: 60px;
+					right: 60px;
+					height: 30px;
+					transition: .3s all;
+
+          @include hover {
+              &:hover {
+                  @include transform(rotate(-90deg));
+              }
+          }
+				}
+
+			}
+
+		}
+	}
+}

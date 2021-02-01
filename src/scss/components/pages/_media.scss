@@ -1,0 +1,59 @@
+.media {
+  //@include flexbox(row, flex-start, flex-start, nowrap);
+  display: flex;
+  max-width: 1400px;
+  margin: auto;
+
+  @media(max-width: $LESS_THAN_LG){
+    @include flexbox(column, center, center, wrap);
+
+  }
+
+  ///////////////////
+
+  .media-videos{
+    margin-bottom: 60px;
+  }
+
+  ///////////////////
+
+  .media-photos{
+    //margin-bottom: 60px; 
+  }
+
+  ///////////////////
+
+  .media-acclaim{
+    max-width: 850px;
+    margin-bottom: 80px;
+    margin-right: 40px;
+
+    @media(max-width: $LESS_THAN_LG){
+      margin-right: 0px;
+
+    }
+
+    .company{
+      margin-bottom: 15px;
+
+      span{
+        background: $YELLOW;
+        padding: 4px 8px;
+      }
+    }
+    .date{
+      font-weight: $SEMI_BOLD_WEIGHT;
+      font-size: 14px;
+    }
+    .show{
+      font-style: italic;
+    }
+    .publication{
+      margin-top: 20px;
+    }
+    .quote{
+
+    }
+  }
+
+}

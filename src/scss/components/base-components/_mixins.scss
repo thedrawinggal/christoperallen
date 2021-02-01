@@ -1,0 +1,189 @@
+/* HOVER */
+@mixin hover {
+	@media (hover: hover) {
+		@content;
+	}
+}
+
+/* FONT */
+@mixin font($font-size, $font-weight, $color, $text-transform: none, $letter-spacing: 0) {
+	font-size: $font-size;
+	font-weight: $font-weight;
+	color: $color;
+	text-transform: $text-transform;
+	letter-spacing: $letter-spacing;
+}
+
+@mixin responsive-type($responsive, $min, $max: false, $fallback: false) {
+	$responsive-unitless: $responsive / ($responsive - $responsive + 1);
+	$dimension: if(unit($responsive) == 'vh', 'height', 'width');
+	$min-breakpoint: $min / $responsive-unitless * 100;
+
+	@media (max-#{$dimension}: #{$min-breakpoint}) {
+		font-size: $min;
+	}
+
+	@if $max {
+		$max-breakpoint: $max / $responsive-unitless * 100;
+
+		@media (min-#{$dimension}: #{$max-breakpoint}) {
+			font-size: $max;
+		}
+	}
+
+	@if $fallback {
+		font-size: $fallback;
+	}
+
+	font-size: $responsive;
+}
+
+/* LAYOUT */
+
+@mixin container ($width, $max-width-gutter) {
+	width: $width;
+	max-width: calc(100% - (#{$max-width-gutter} * 2));
+	margin: auto;
+}
+
+@mixin responsive-sizing($type, $xl_value, $lg_value, $md_value, $sm_value) {
+		@media (min-width: $XL) {
+			#{$type}: $xl_value;
+		}
+
+		@media (min-width: $LG) and (max-width: $LESS_THAN_XL) {
+			#{$type}: $lg_value;
+		}
+
+		@media (min-width: $MD) and (max-width: $LESS_THAN_LG) {
+			#{$type}: $md_value;
+		}
+
+		@media (max-width: $LESS_THAN_MD) {
+			#{$type}: $sm_value;
+		}
+}
+
+@mixin responsive-sizing-extended($type, $xl_value, $lg_value, $md_value, $sm_value, $xs_value, $xxs_value) {
+		@media (min-width: $XL) {
+			#{$type}: $xl_value;
+		}
+
+		@media (min-width: $LG) and (max-width: $LESS_THAN_XL) {
+			#{$type}: $lg_value;
+		}
+
+		@media (min-width: $MD) and (max-width: $LESS_THAN_LG) {
+			#{$type}: $md_value;
+		}
+
+		@media (max-width: 940px) {
+			#{$type}: $sm_value;
+		}
+
+		@media (max-width: 600px) {
+			#{$type}: $xs_value;
+		}
+
+		@media (max-width: 440px) {
+			#{$type}: $xxs_value;
+		}
+}
+
+@mixin responsive-spacing($direction, $spacer-kind, $xl_value, $lg_value, $md_value, $sm_value) {
+	@if $direction != 'all' {
+		@media (min-width: $XL) {
+			#{$spacer-kind}-#{$direction}: $xl_value;
+		}
+
+		@media (min-width: $LG) and (max-width: $LESS_THAN_XL) {
+			#{$spacer-kind}-#{$direction}: $lg_value;
+		}
+
+		@media (min-width: $MD) and (max-width: $LESS_THAN_LG) {
+			#{$spacer-kind}-#{$direction}: $md_value;
+		}
+
+		@media (max-width: $LESS_THAN_MD) {
+			#{$spacer-kind}-#{$direction}: $sm_value;
+		}
+	} @else {
+		@media (min-width: $XL) {
+			#{$spacer-kind}: $xl_value;
+		}
+
+		@media (min-width: $LG) and (max-width: $LESS_THAN_XL) {
+			#{$spacer-kind}: $lg_value;
+		}
+
+		@media (min-width: $MD) and (max-width: $LESS_THAN_LG) {
+			#{$spacer-kind}: $md_value;
+		}
+
+		@media (max-width: $LESS_THAN_MD) {
+			#{$spacer-kind}: $sm_value;
+		}
+	}
+}
+
+@mixin push-to-viewport-edge($direction, $width) {
+	@if $direction == 'left' {
+		margin-left: calc(50% - 50vw);
+	}
+
+	@if $direction == 'right' {
+		margin-right: calc(50% - 50vw);
+	}
+	width: $width;
+}
+
+@mixin position-center($position, $direction) {
+	@if $direction == 'vertical' {
+		position: $position;
+		top: 50%;
+		@include transform(translateY(-50%));
+	}
+
+	@if $direction == 'horizontal' {
+		position: $position;
+		left: 50%;
+		@include transform(translateX(-50%));
+	}
+
+	@if $direction == 'both' {
+		position: $position;
+		left: 50%;
+		top: 50%;
+		@include transform(translateX(-50%) translateY(-50%));
+	}
+}
+
+@mixin flexbox($flex_direction, $justify_content, $align_items, $flex-wrap: wrap) {
+	display: flex;
+	flex-direction: $flex_direction;
+	justify-content: $justify_content;
+	align-items: $align_items;
+	flex-wrap: $flex-wrap;
+}
+
+/* TRANSFORM */
+@mixin transform($property) {
+	-moz-transform: $property;
+	-webkit-transform: $property;
+	-ms-transform: $property;
+	transform: $property;
+}
+
+/* ANIMATION */
+@mixin animation($property) {
+	-moz-animation: $property;
+	-webkit-animation: $property;
+	-ms-animation: $property;
+	animation: $property;
+}
+
+/* CLIP PATH */
+@mixin clip-path($property) {
+	clip-path: $property;
+    -webkit-clip-path: $property;
+}

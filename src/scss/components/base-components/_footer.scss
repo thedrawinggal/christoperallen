@@ -1,0 +1,20 @@
+.site-footer {
+	width: 100%;
+	background-color: $BLACK;
+	color: $WHITE;
+	@include responsive-sizing(margin-top, 160px, 130px, 100px, 60px);
+
+	&.home{
+    display: none;
+	}
+
+	&-content{
+		padding: 10px 30px;
+		text-align: right;
+		font-size: 10px;
+		text-transform: uppercase;
+		@media(max-width: $LESS_THAN_LG){
+			text-align: center;
+		}
+	}
+}

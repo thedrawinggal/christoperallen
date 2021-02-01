@@ -1,0 +1,82 @@
+.full-width{
+  width: 100%;
+}
+.two-column-width {
+    @include flexbox(row, space-between, stretch, nowrap);
+
+    @media(max-width: $LESS_THAN_LG) {
+        @include flexbox(column, flex-start, center, nowrap);
+    }
+
+    &-left,
+    &-right {
+        width: calc(50% - 30px);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center center;
+        }
+
+        @media(max-width: $LESS_THAN_LG) {
+            width: 80% !important;
+        }
+        @media(max-width: $LESS_THAN_MD) {
+            width: 100% !important;
+        }
+        &.sm{
+          width: calc(40% - 30px);
+        }
+        &.lg{
+          width: calc(60% - 30px);
+        }
+        &.sm, &.lg{
+          @media(max-width: $LESS_THAN_LG) {
+              width: 80%;
+          }
+        }
+
+    }
+    &-left{
+      @media(max-width: $LESS_THAN_LG) {
+          @include responsive-spacing(bottom, margin, 78px, 40px, 30px, 20px);
+        }
+    }
+
+}
+
+.three-column-width {
+    @include flexbox(row, space-around, stretch, nowrap);
+    //@include responsive-spacing(all, margin, 78px 0, 40px 0, 30px 0, 20px 0);
+
+    @media(max-width: $LESS_THAN_LG) {
+        @include flexbox(column, flex-start, center, nowrap);
+    }
+
+    div {
+        width: calc(33.3% - 6px);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center center;
+        }
+
+        @media(max-width: $LESS_THAN_LG) {
+            @include flexbox(column, flex-start, center, nowrap);
+            //@include responsive-spacing(bottom, margin, 78px, 40px, 30px, 20px);
+
+            .caption-wrapper{
+              display: flex;
+            }
+        }
+
+        @media(max-width: $LESS_THAN_LG) {
+            width: 100%;
+
+        }
+    }
+
+}

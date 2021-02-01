@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="34px" viewBox="0 0 45 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="Group" transform="translate(1.000000, 1.000000)" filter="url(#filter-1)">
+            <g>
+                <line x1="0.5" y1="0.5" x2="42.5" y2="0.5" id="Line" stroke="#FFFFFF" stroke-width="2"></line>
+                <line x1="0.5" y1="16" x2="42.5" y2="16" id="Line-Copy" stroke="#FFFFFF" stroke-width="2"></line>
+                <line x1="0.5" y1="31.5" x2="42.5" y2="31.5" id="Line-Copy-2" stroke="#FFFFFF" stroke-width="2"></line>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,56 @@
+.flexible-media-item {
+    &.image {
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: inherit;
+        }
+    }
+
+    &.quote {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        @include flexbox(column, center, flex-start, nowrap);
+
+        &__inner {
+            @include responsive-spacing(all, padding, 70px, 50px, 35px, 35px);
+        }
+    }
+
+    &.video-embed {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+
+        iframe,
+        object,
+        embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &.video-autoplay {
+        width: 100%;
+        height: 100%;
+
+
+        video {
+            width: 100%;
+            height: 100%;
+            min-height: inherit;
+        }
+    }
+}

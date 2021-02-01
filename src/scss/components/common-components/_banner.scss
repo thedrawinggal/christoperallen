@@ -1,0 +1,164 @@
+.banner-bg{
+  background-color: $GRAY;
+}
+.page-banner {
+  @include flexbox(row, flex-end, flex-end, nowrap);
+  //@include responsive-sizing(margin-top, -90px, -75px, -60px, -60px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+
+
+    &.map{
+      display: inline !important;
+
+        .page-banner-content{
+          position: absolute;
+          z-index: 1;
+          bottom: 0;
+          padding: 0 !important;
+
+          .title{
+            left: 0;
+            @include responsive-spacing(all, padding, 70px 50px, 50px 40px, 35px 30px, 35px 20px 0 20px);
+            flex-grow: 1;
+
+            h1{
+              color: $BLACK;
+            }
+          }
+          .button{
+            @include responsive-spacing(all, padding, 70px 50px, 50px 40px, 35px 30px, 35px 20px 0 20px);
+          }
+        }
+      }
+
+    &.image {
+        width: 100%;
+        @include responsive-sizing(height, 650px, 550px, 450px, 350px);
+        min-height: inherit;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: inherit;
+            //position: absolute;
+        }
+    }
+
+    &.video-embed {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+
+        .page-banner-content{
+          position: absolute;
+          z-index: 1;
+          bottom: 0;
+          padding: 0 !important;
+
+          .title{
+            left: 0;
+            @include responsive-spacing(all, padding, 70px 50px, 50px 40px, 35px 30px, 35px 20px 0 20px);
+            flex-grow: 1;
+
+          }
+          .button{
+            @include responsive-spacing(all, padding, 70px 50px, 50px 40px, 35px 30px, 35px 20px 0 20px);
+          }
+        }
+
+        iframe,
+        object,
+        embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &.video-autoplay {
+        width: 100%;
+        height: 100%;
+
+        .page-banner-content{
+          position: absolute;
+          z-index: 1;
+          bottom: 0;
+          padding: 0 !important;
+
+          .title{
+            left: 0;
+            @include responsive-spacing(all, padding, 70px 50px, 50px 40px, 35px 30px, 35px 20px 0 20px);
+            flex-grow: 1;
+
+          }
+          .button{
+            @include responsive-spacing(all, padding, 70px 50px, 50px 40px, 35px 30px, 35px 20px 0 20px);
+          }
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            min-height: inherit;
+        }
+    }
+
+    .page-banner-content{
+      @include responsive-spacing(all, padding, 70px 50px, 50px 40px, 35px 30px, 35px 20px);
+      @include flexbox(row, flex-start, center, nowrap);
+      z-index: 1;
+      width: 100%;
+
+      @media(max-width: $LESS_THAN_MD) {
+          @include flexbox(column, flex-start, center, nowrap);
+      }
+
+      .title{
+        flex-grow: 1;
+        h1{
+          color: $WHITE;
+        }
+      }
+      .cta-button{
+        flex-grow: 1;
+        text-align: right;
+
+      }
+    }
+
+}
+
+.banner-accent{
+  height: 100px;
+  width: 100%;
+  background-color: $WHITE;
+  -webkit-clip-path: polygon(0% 50%, 100% 80%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 50%, 100% 80%, 100% 100%, 0% 100%);
+  margin-top: -50px;
+}
+
+.page-banner-title{
+  background-color: $BLACK;
+  color: $BLACK;
+  @include responsive-spacing(top, padding, 90px, 75px, 60px, 60px);
+
+  div{
+    @include responsive-sizing(padding, 50px, 40px, 30px, 20px);
+  }
+}
+
+.parallax-mirror{
+  @media(max-width: $LESS_THAN_LG) {
+      display: none;
+  }
+}

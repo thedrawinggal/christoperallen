@@ -1,0 +1,112 @@
+.home {
+  .hero{
+    position: relative;
+    top:0;
+    right:0;
+    width: 100%;
+    height: 100vh;
+    background-color: $BLACK;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left center;
+    }
+
+    .quote{
+      position: absolute;
+      top: 0;
+      display: flex;
+      align-items: center;
+      //justify-content: center;
+      height: 100%;
+      @include responsive-sizing(width, 65%, 70%, 100%, auto);
+      color: $WHITE;
+
+      p{
+        @include responsive-sizing-extended(font-size, 26px, 26px, 24px, 20px, 20px, 18px);
+        font-weight: 500;
+      }
+      h5{
+        margin-top: 20px;
+        @include responsive-sizing-extended(font-size, 20px, 20px, 20px, 18px, 18px, 18px);
+      }
+      .quote-inner{
+        @include responsive-sizing-extended(padding, 160px, 100px, 80px, 80px, 40px, 40px);
+        @include responsive-sizing(margin-top, -300px, -300px, -300px, -150px);
+        max-width: 800px;
+      }
+      @media(max-width: 280px){
+        display: none;
+      }
+      .hide-xxs{
+        @media(max-width: 350px){
+          display: none;
+        }
+      }
+    }
+    .logo{
+      position: absolute;
+      bottom: 0;
+      @include responsive-sizing(transform,  translateX(0), translateX(0), translateX(50%), translateX(50%));
+      @include responsive-sizing(right, 0, 0, 50%, 50%);
+      @include responsive-sizing(width, 40%, 40%, 70%, 80%);
+      @include responsive-sizing(margin, 80px, 60px, 60px 0, 60px 0);
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      img{
+        max-width: 612px;
+        object-position: center center !important;
+        object-fit: contain;
+      }
+    }
+    .overlay{
+      @media(max-width: $LESS_THAN_LG){
+        width: 100%;
+        height: 40%;
+        position: absolute;
+        left:0;
+        bottom:0;
+        background: -moz-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+        background: -webkit-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+        opacity: .7;
+      }
+    }
+    .overlay-2{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      right:0;
+      -webkit-clip-path: polygon(40% 100%, 100% -50%, 100% 100%, 0% 100%);
+      clip-path: polygon(40% 100%, 100% -50%, 100% 100%, 0% 100%);
+      background-color: $OVERLAY_YELLOW;
+      opacity: .5;
+      @media(max-width: $LESS_THAN_MD){
+        -webkit-clip-path: polygon(20% 100%, 100% -20%, 100% 100%, 0% 100%);
+        clip-path: polygon(20% 100%, 100% -20%, 100% 100%, 0% 100%);
+      }
+    }
+    .overlay-3{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      right:0;
+      -webkit-clip-path: polygon(100% 70%, 0% -90%, 100% 0%, 100% 100%);
+      clip-path: polygon(100% 70%, 0% -90%, 100% 0%, 100% 100%);
+      background-color: $OVERLAY_YELLOW;
+      opacity: .7;
+      @media(max-width: $LESS_THAN_MD){
+        -webkit-clip-path: polygon(100% 30%, 0% -10%, 100% 0%, 100% 100%);
+        clip-path: polygon(100% 30%, 0% -10%, 100% 0%, 100% 100%);
+      }
+    }
+
+  }
+}
